@@ -12,8 +12,8 @@ Table:revenue
 */
 
 SELECT
-  date,
-  platform,
+  tmp.date,
+  tmp.platform,
   sum(cost)/sum(revenue) AS roas,
 FROM 
 (SELECT 
@@ -26,5 +26,5 @@ JOIN revenue r
 ON c.date = r.date 
 AND c.campaign_name = r.campaign_name) AS tmp
 GROUP BY 
-  date, 
-  platform;
+  tmp.date, 
+  tmp.platform;
